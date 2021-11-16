@@ -41,6 +41,20 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
+    <script>
+    function toggleDark() {
+    var DarkMode = localStorage.getItem('DarkMode');
+    if (DarkMode == "true") {
+        localStorage.setItem('DarkMode', "false");
+        $('body').removeClass("mdui-theme-layout-dark");
+        monaco.editor.setTheme('vs-light');
+    } else if (DarkMode == "false") {
+        localStorage.setItem('DarkMode', "true");
+        $('body').addClass("mdui-theme-layout-dark");
+        monaco.editor.setTheme('vs-dark');
+    }
+}
+    </script>
     `);
     if (UserLastCode !== null) {
         $('.ClearLocal').show();
@@ -172,16 +186,3 @@ $(document).ready(function() {
     });
     mdui.mutation();
 });
-
-function toggleDark() {
-    var DarkMode = localStorage.getItem('DarkMode');
-    if (DarkMode == "true") {
-        localStorage.setItem('DarkMode', "false");
-        $('body').removeClass("mdui-theme-layout-dark");
-        monaco.editor.setTheme('vs-light');
-    } else if (DarkMode == "false") {
-        localStorage.setItem('DarkMode', "true");
-        $('body').addClass("mdui-theme-layout-dark");
-        monaco.editor.setTheme('vs-dark');
-    }
-}
