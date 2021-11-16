@@ -19,7 +19,7 @@ $(document).ready(function() {
             <a class="mdui-btn mdui-btn-icon ClearLocal" style="display: none" mdui-tooltip="{content: 'Xóa code đã lưu'}"><i class="mdui-icon material-icons">clear</i></a>
             <a class="mdui-btn mdui-btn-icon ExportToFile" mdui-tooltip="{content: 'Xuất ra file'}"><i class="mdui-icon material-icons">system_update_alt</i></a>
             <a class="mdui-btn mdui-btn-icon AboutToggle" mdui-tooltip="{content: 'Thông tin về sản phẩm :)'}"><i class="mdui-icon material-icons">info</i></a>
-            <a class="mdui-btn mdui-btn-icon DarkMode_Toggle" mdui-tooltip="{content: 'Đen thui/Ánh sáng của đảng mode'}"><i class="mdui-icon material-icons">dark_mode</i></a>
+            <a class="mdui-btn mdui-btn-icon" onclick="toggleDark()" mdui-tooltip="{content: 'Đen thui/Ánh sáng của đảng mode'}"><i class="mdui-icon material-icons">dark_mode</i></a>
             <a class="mdui-btn mdui-btn-icon" href="https://github.com/michioxd/justPlayGround">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon" style="width: 24px;height:24px;">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
@@ -45,7 +45,8 @@ $(document).ready(function() {
     if (UserLastCode !== null) {
         $('.ClearLocal').show();
     }
-    $('.DarkMode_Toggle').click(function() {
+
+    function toggleDark() {
         var DarkMode = localStorage.getItem('DarkMode');
         if (DarkMode == "true") {
             localStorage.setItem('DarkMode', "false");
@@ -56,7 +57,7 @@ $(document).ready(function() {
             $('body').addClass("mdui-theme-layout-dark");
             monaco.editor.setTheme('vs-dark');
         }
-    });
+    };
 
     function encodeString(str) {
         return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
