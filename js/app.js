@@ -46,19 +46,6 @@ $(document).ready(function() {
         $('.ClearLocal').show();
     }
 
-    function toggleDark() {
-        var DarkMode = localStorage.getItem('DarkMode');
-        if (DarkMode == "true") {
-            localStorage.setItem('DarkMode', "false");
-            $('body').removeClass("mdui-theme-layout-dark");
-            monaco.editor.setTheme('vs-light');
-        } else if (DarkMode == "false") {
-            localStorage.setItem('DarkMode', "true");
-            $('body').addClass("mdui-theme-layout-dark");
-            monaco.editor.setTheme('vs-dark');
-        }
-    };
-
     function encodeString(str) {
         return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
             function toSolidBytes(match, p1) {
@@ -185,3 +172,16 @@ $(document).ready(function() {
     });
     mdui.mutation();
 });
+
+function toggleDark() {
+    var DarkMode = localStorage.getItem('DarkMode');
+    if (DarkMode == "true") {
+        localStorage.setItem('DarkMode', "false");
+        $('body').removeClass("mdui-theme-layout-dark");
+        monaco.editor.setTheme('vs-light');
+    } else if (DarkMode == "false") {
+        localStorage.setItem('DarkMode', "true");
+        $('body').addClass("mdui-theme-layout-dark");
+        monaco.editor.setTheme('vs-dark');
+    }
+}
