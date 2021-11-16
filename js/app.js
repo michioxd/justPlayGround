@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' } });
+    require.config({ paths: { 'vs': '/modules/monaco-editor/min/vs' } });
     window.MonacoEnvironment = { getWorkerUrl: () => proxy };
     let proxy = URL.createObjectURL(new Blob([`
 	self.MonacoEnvironment = {
-		baseUrl: '/node_modules/monaco-editor/min/'
+		baseUrl: '/modules/monaco-editor/min/'
 	};
-	importScripts('/node_modules/monaco-editor/min/vs/base/worker/workerMain.js');`], { type: 'text/javascript' }));
+	importScripts('/modules/monaco-editor/min/vs/base/worker/workerMain.js');`], { type: 'text/javascript' }));
     var DarkMode = localStorage.getItem('DarkMode');
     var UserLastCode = localStorage.getItem('UserLastCode');
     $('body').addClass("mdui-appbar-with-toolbar mdui-theme-primary-cyan mdui-theme-accent-cyan");
