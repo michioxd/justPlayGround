@@ -1,7 +1,3 @@
-* {
-    transition: .2s;
-}
-
 .monaco-editor,
 .monaco-editor * {
     transition: .1s;
@@ -10,7 +6,11 @@
 .monaco-editor .minimap,
 .monaco-editor .minimap *,
 .monaco-editor .scrollbar,
-.monaco-editor .scrollbar * {
+.monaco-editor .scrollbar *,
+.monaco-editor #quickMenu_list,
+.monaco-editor #quickMenu_list *,
+.monaco-editor .quick-input-widget,
+.monaco-editor .quick-input-widget * {
     transition: none;
 }
 
@@ -28,6 +28,10 @@
 
 .App .monaco-editor .monaco-scrollable-element {
     width: calc(100% - 64px) !important;
+}
+
+.App .monaco-editor .quick-input-widget .monaco-scrollable-element {
+    width: 100% !important;
 }
 
 .App .monaco-editor .monaco-scrollable-element {
