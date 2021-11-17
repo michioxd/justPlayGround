@@ -16,7 +16,7 @@ $(document).ready(function() {
             <div class="mdui-toolbar-spacer"></div>
             <a class="mdui-btn mdui-btn-icon BuildApp" mdui-tooltip="{content: 'Build Code (Ctrl+B)'}"><i class="mdui-icon material-icons">construction</i></a>
             <a class="mdui-btn mdui-btn-icon SaveToLocal" mdui-tooltip="{content: 'Lưu code hiện tại vào browser (Ctrl+S)'}"><i class="mdui-icon material-icons">save</i></a>
-            <a class="mdui-btn mdui-btn-icon ClearLocal" style="display: none" mdui-tooltip="{content: 'Xóa code đã lưu (Ctrl+Shift+R)'}"><i class="mdui-icon material-icons">clear</i></a>
+            <a class="mdui-btn mdui-btn-icon ClearLocal" style="display: none" mdui-tooltip="{content: 'Xóa code đã lưu (Ctrl+0)'}"><i class="mdui-icon material-icons">clear</i></a>
             <a class="mdui-btn mdui-btn-icon ExportToFile" mdui-tooltip="{content: 'Xuất ra file (Ctrl+Shift+E)'}"><i class="mdui-icon material-icons">system_update_alt</i></a>
             <a class="mdui-btn mdui-btn-icon AboutToggle" mdui-tooltip="{content: 'Thông tin về sản phẩm :)'}"><i class="mdui-icon material-icons">info</i></a>
             <a class="mdui-btn mdui-btn-icon DarkMode_toggle" mdui-tooltip="{content: 'Đen thui/Ánh sáng của đảng mode'}"><i class="mdui-icon material-icons">dark_mode</i></a>
@@ -80,7 +80,7 @@ $(document).ready(function() {
     }
 
     if (localStorage.getItem('FirstTime') == null) {
-        mdui.alert('Konnichiwaaa~<br>Đây là đống hotkey sẽ giúp bạn nhiều đấy<br> - Build code: Ctrl+B<br> - Lưu: Ctrl+S<br> - Xuất ra file: Ctrl+Shift+E<br> - Xóa code đã lưu: Ctrl+Shift+R<br><br>arigatouuu>~<', 'Helu!');
+        mdui.alert('Konnichiwaaa~<br>Đây là đống hotkey sẽ giúp bạn nhiều đấy<br> - Build code: Ctrl+B<br> - Lưu: Ctrl+S<br> - Xuất ra file: Ctrl+Shift+E<br> - Xóa code đã lưu: Ctrl+Shift+L<br><br>arigatouuu>~<', 'Helu!');
         localStorage.setItem('FirstTime', 'true');
     }
 
@@ -213,11 +213,9 @@ $(document).ready(function() {
         } else if (event.ctrlKey && event.shiftKey && event.keyCode == 69) {
             $('.ExportToFile').click();
             return false;
-        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 82) {
-            if (UserLastCode !== null) {
-                $('.ClearLocal').click();
-                return false;
-            }
+        } else if (event.ctrlKey && event.keyCode == 48) {
+            $('.ClearLocal').click();
+            return false;
         } else if (event.ctrlKey && event.keyCode == 66) {
             $('.BuildApp').click();
             return false;
