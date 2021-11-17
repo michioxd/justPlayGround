@@ -1,3 +1,19 @@
+* {
+    transition: .2s;
+}
+
+.monaco-editor,
+.monaco-editor * {
+    transition: .1s;
+}
+
+.monaco-editor .minimap,
+.monaco-editor .minimap *,
+.monaco-editor .scrollbar,
+.monaco-editor .scrollbar * {
+    transition: none;
+}
+
 .monaco-editor,
 .monaco-editor * .App .monaco-editor,
 .App .monaco-editor .overflow-guard {
