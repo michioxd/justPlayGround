@@ -14,10 +14,10 @@ $(document).ready(function() {
         <div class="mdui-toolbar mdui-color-theme">
             <span class="mdui-typo-title">justPlayGround!</span>
             <div class="mdui-toolbar-spacer"></div>
-            <a class="mdui-btn mdui-btn-icon BuildApp" mdui-tooltip="{content: 'Build Code'}"><i class="mdui-icon material-icons">construction</i></a>
-            <a class="mdui-btn mdui-btn-icon SaveToLocal" mdui-tooltip="{content: 'Lưu code hiện tại vào browser'}"><i class="mdui-icon material-icons">save</i></a>
-            <a class="mdui-btn mdui-btn-icon ClearLocal" style="display: none" mdui-tooltip="{content: 'Xóa code đã lưu'}"><i class="mdui-icon material-icons">clear</i></a>
-            <a class="mdui-btn mdui-btn-icon ExportToFile" mdui-tooltip="{content: 'Xuất ra file'}"><i class="mdui-icon material-icons">system_update_alt</i></a>
+            <a class="mdui-btn mdui-btn-icon BuildApp" mdui-tooltip="{content: 'Build Code (Ctrl+B)'}"><i class="mdui-icon material-icons">construction</i></a>
+            <a class="mdui-btn mdui-btn-icon SaveToLocal" mdui-tooltip="{content: 'Lưu code hiện tại vào browser (Ctrl+S)'}"><i class="mdui-icon material-icons">save</i></a>
+            <a class="mdui-btn mdui-btn-icon ClearLocal" style="display: none" mdui-tooltip="{content: 'Xóa code đã lưu (Ctrl+Shift+R)'}"><i class="mdui-icon material-icons">clear</i></a>
+            <a class="mdui-btn mdui-btn-icon ExportToFile" mdui-tooltip="{content: 'Xuất ra file (Ctrl+Shift+E)'}"><i class="mdui-icon material-icons">system_update_alt</i></a>
             <a class="mdui-btn mdui-btn-icon AboutToggle" mdui-tooltip="{content: 'Thông tin về sản phẩm :)'}"><i class="mdui-icon material-icons">info</i></a>
             <a class="mdui-btn mdui-btn-icon DarkMode_toggle" mdui-tooltip="{content: 'Đen thui/Ánh sáng của đảng mode'}"><i class="mdui-icon material-icons">dark_mode</i></a>
             <a class="mdui-btn mdui-btn-icon" href="https://github.com/michioxd/justPlayGround">
@@ -150,7 +150,24 @@ $(document).ready(function() {
                 });
                 $('.ClearLocal').hide();
             });
-
+        });
+        $(document).keydown(function(event) {
+            if (event.ctrlKey && event.keyCode == 82 || event.keyCode == 116) {
+                var Value = encodeString(AppEditor.getValue());
+                var UserLastCode = localStorage.getItem('UserLastCode');
+                if (UserLastCode !== Value) {
+                    mdui.confirm('Bạn chưa lưu lại các thay đổi, bạn có muốn refresh lại trang không?', 'Chắc chưa? :)', function() {
+                        window.location.reload();
+                    });
+                    return false;
+                } else {
+                    mdui.snackbar({
+                        message: "Đang reload..."
+                    })
+                    window.location.reload();
+                }
+                return false;
+            }
         });
     });
     if (DarkMode == "true") {
