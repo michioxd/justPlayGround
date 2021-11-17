@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.-.</title>
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .linear {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .container {
+            width: 450px;
+            height: auto;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.611);
+            margin: auto;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0px 0px 80px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="linear"></div>
+    <div class="container">
+        <h1>justPlayGround!</h1>
+        <p>chào mừng bạn đến với justPlayGround! - nhấn ctrl+b để chạy code nhé :)</p>
+        <br>
+        <p>by <b>michioxd</b>
+    </div>
+</body>
+
+</html>

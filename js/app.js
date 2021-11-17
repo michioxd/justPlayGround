@@ -43,7 +43,7 @@ $(document).ready(function() {
                 </div>
             </div>
             <div class="App_preview">
-                <iframe src="" id="Preview" frameborder="0"></iframe>
+                <iframe src="/no-build.html" id="Preview" frameborder="0"></iframe>
             </div>
         </div>
     </div>
