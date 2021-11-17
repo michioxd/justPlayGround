@@ -35,6 +35,12 @@ $(document).ready(function() {
     <div class="mdui-container">
         <div class="App">
             <div class=" App_editor " id="EA_EDITOR">
+                <div class="Loading">
+                    <div>
+                        <div class="mdui-spinner"></div>
+                        <h4>Đang tải...</h4>
+                    </div>
+                </div>
             </div>
             <div class="App_preview">
                 <iframe src="" id="Preview" frameborder="0"></iframe>
@@ -109,6 +115,7 @@ $(document).ready(function() {
             language: 'html',
             theme: 'vs-light'
         });
+        $('.App .App_editor .Loading').hide();
         if (DarkMode == "true") {
             monaco.editor.setTheme('vs-dark');
         }
