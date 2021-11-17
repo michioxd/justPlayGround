@@ -173,14 +173,14 @@ $(document).ready(function() {
                 var UserLastCode = localStorage.getItem('UserLastCode');
                 if (UserLastCode !== Value) {
                     mdui.confirm('Bạn chưa lưu lại các thay đổi, bạn có muốn refresh lại trang không?', 'Chắc chưa? :)', function() {
-                        window.location.reload();
+                        window.location.href = "";
                     });
                     return false;
                 } else {
                     mdui.snackbar({
                         message: "Đang reload..."
                     })
-                    window.location.reload();
+                    window.location.href = "";
                 }
                 return false;
             }
