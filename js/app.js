@@ -136,22 +136,29 @@ $(document).ready(function() {
         });
         $('.SaveToLocal').click(function() {
             var Value = encodeString(AppEditor.getValue());
-            localStorage.setItem('UserLastCode', Value);
-            mdui.snackbar({
-                message: 'Đã lưu!'
-            });
-            $('.SaveToLocal').hide();
-            $('.ClearLocal').show();
+            var UserLastCode = localStorage.getItem('UserLastCode');
+            if (UserLastCode !== Value) {
+                var Value = encodeString(AppEditor.getValue());
+                localStorage.setItem('UserLastCode', Value);
+                mdui.snackbar({
+                    message: 'Đã lưu!'
+                });
+                $('.SaveToLocal').hide();
+                $('.ClearLocal').show();
+            }
         });
         $('.ClearLocal').click(function() {
-            mdui.confirm('Đống code mà bạn đã lưu vào browser sẽ bị bay màu! Tui hem chịu đâu nhaa', 'Chắc chưa?', function() {
-                localStorage.removeItem('UserLastCode');
-                mdui.snackbar({
-                    message: 'Đã xóa!'
+            var UserLastCode = localStorage.getItem('UserLastCode');
+            if (UserLastCode !== null) {
+                mdui.confirm('Đống code mà bạn đã lưu vào browser sẽ bị bay màu! Tui hem chịu đâu nhaa', 'Chắc chưa?', function() {
+                    localStorage.removeItem('UserLastCode');
+                    mdui.snackbar({
+                        message: 'Đã xóa!'
+                    });
+                    $('.ClearLocal').hide();
+                    $('.SaveToLocal').show();
                 });
-                $('.ClearLocal').hide();
-                $('.SaveToLocal').show();
-            });
+            }
         });
         $(document).keydown(function(event) {
             if (event.ctrlKey && event.keyCode == 82 || event.keyCode == 116) {
