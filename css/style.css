@@ -1,20 +1,4 @@
 .monaco-editor,
-.monaco-editor * {
-    transition: .1s;
-}
-
-.monaco-editor .minimap,
-.monaco-editor .minimap *,
-.monaco-editor .scrollbar,
-.monaco-editor .scrollbar *,
-.monaco-editor #quickMenu_list,
-.monaco-editor #quickMenu_list *,
-.monaco-editor .quick-input-widget,
-.monaco-editor .quick-input-widget * {
-    transition: none;
-}
-
-.monaco-editor,
 .monaco-editor * .App .monaco-editor,
 .App .monaco-editor .overflow-guard {
     height: 100% !important;
