@@ -222,7 +222,7 @@ $(document).ready(function() {
         }
     });
     $('.AboutToggle').click(function() {
-        mdui.alert(`<b>justPlayGround ver 0.1</b>
+        mdui.alert(`<b>justPlayGround ver 0.1.1</b>
         <br> by <b>michio kawaii :3</b> nyaaaaaaaaaaa~
         <br> Giấy phép: MIT License
         <br>
