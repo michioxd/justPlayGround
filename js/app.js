@@ -140,6 +140,7 @@ $(document).ready(function() {
             mdui.snackbar({
                 message: 'Đã lưu!'
             });
+            $('.SaveToLocal').hide();
             $('.ClearLocal').show();
         });
         $('.ClearLocal').click(function() {
@@ -149,6 +150,7 @@ $(document).ready(function() {
                     message: 'Đã xóa!'
                 });
                 $('.ClearLocal').hide();
+                $('.SaveToLocal').show();
             });
         });
         $(document).keydown(function(event) {
@@ -169,6 +171,22 @@ $(document).ready(function() {
                 return false;
             }
         });
+        AppEditor.onDidChangeModelContent(function() {
+            var Value = encodeString(AppEditor.getValue());
+            var UserLastCode = localStorage.getItem('UserLastCode');
+            if (UserLastCode !== Value) {
+                $('.SaveToLocal').show();
+            } else {
+                $('.SaveToLocal').hide();
+            }
+        });
+        var Value = encodeString(AppEditor.getValue());
+        var UserLastCode = localStorage.getItem('UserLastCode');
+        if (UserLastCode !== Value) {
+            $('.SaveToLocal').show();
+        } else {
+            $('.SaveToLocal').hide();
+        }
     });
     if (DarkMode == "true") {
         $('body').addClass("mdui-theme-layout-dark");
